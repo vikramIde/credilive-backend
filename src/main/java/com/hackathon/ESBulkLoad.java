@@ -24,7 +24,7 @@ import org.elasticsearch.transport.client.PreBuiltTransportClient;
 
 public class ESBulkLoad {
 
-	final String CREDIT_CARD_FILE_NAME= "C:\\\\Hackathon\\\\ElasticSearchBulkIndexingExample\\\\credit_card57066eaProd.csv";
+	final String CREDIT_CARD_FILE_NAME= "credit_card57066eaProd.csv";
     String indexName,indexTypeName;
     TransportClient client = null;
 
@@ -39,7 +39,7 @@ public class ESBulkLoad {
 
             esExample.refreshIndices();
 
-            esExample.search(); //search indexed document
+           
         }catch (Exception e)
         {
             e.printStackTrace();
@@ -51,7 +51,7 @@ public class ESBulkLoad {
 
 
     public ESBulkLoad(){
-        indexName = "creditinfo";
+        indexName = "creditdevinfo";
         indexTypeName = "bulkindexing";
     }
 
