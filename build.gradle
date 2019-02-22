@@ -1,0 +1,77 @@
+
+ 
+ /***************************************************************************************
+ *                                                                                     *
+ *                               Hackathon customer experience                         *
+ *                                                                                     *
+ *@author - Dev Gurung                                                        *
+ *                                                                                     *
+ * *************************************************************************************
+ *
+ */
+buildscript {
+
+  ext {
+    springBootVersion = '1.4.3.RELEASE'
+  }
+  repositories {
+   jcenter()
+  mavenLocal()
+}
+dependencies {
+  classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+  classpath("de.undercouch:gradle-download-task:3.4.3")
+
+}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+springBoot 
+{ 
+  executable = true 
+}
+
+jar
+{
+
+  baseName = 'HackathonCredit' 
+  version = '10.30.2'
+}
+
+
+/********************************************************************************************************************
+*Take all the  dependencies from local "libs" folder and resolve other dependencies from maven repository    *
+********************************************************************************************************************/
+
+repositories {
+
+   jcenter()
+  mavenLocal()
+
+} 
+
+
+
+dependencies {
+
+  compile 'org.springframework.boot:spring-boot-starter-parent:1.5.2.RELEASE'
+  compile 'org.springframework.boot:spring-boot-starter-web'
+  runtime 'org.springframework.boot:spring-boot-devtools'
+  compile 'net.alchim31.maven:scala-maven-plugin:3.1.3'
+  compile group: 'org.elasticsearch.client', name: 'transport', version: '6.2.4'
+  // https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch-cli
+compile group: 'org.elasticsearch', name: 'elasticsearch-cli', version: '6.2.4'
+// https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch
+compile group: 'org.elasticsearch', name: 'elasticsearch', version: '6.2.4'
+
+  
+}
+
+
