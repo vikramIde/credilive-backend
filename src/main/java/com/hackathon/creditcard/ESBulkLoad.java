@@ -56,7 +56,7 @@ public class ESBulkLoad {
 
 
     public ESBulkLoad(){
-        indexName = "creditcardvikdev";
+        indexName = "creditcardvikdevfun";
         indexTypeName = "bulkindexing";
     }
 
@@ -101,13 +101,14 @@ public class ESBulkLoad {
                 continue;
             }
             String data [] = line.split(",");
+            
             if(data.length==26){
 
                 try {
                     XContentBuilder xContentBuilder = jsonBuilder()
                             .startObject()
                             .field("ID", data[0])
-                            .field("Name", data[1])
+                            .field("Name", data[1].substring(0, data[1].length()-2 ))
                             .field("LIMIT_BAL", data[2])
                             .field("SEX", data[3])
                             .field("EDUCATION", data[4])
